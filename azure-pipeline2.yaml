@@ -1,0 +1,13 @@
+pool:
+  vmImage: 'ubuntu-16.04'
+  
+variables:
+  imageName: 'ttttestttt'
+  # define more variable yesNo  in the build pipeline in UI
+  
+steps:
+- script: |
+    echo "Starting ..."
+    echo $(imageName)
+    echo $(yesNo)
+    echo "... Ending"
