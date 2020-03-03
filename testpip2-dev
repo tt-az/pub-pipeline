@@ -1,0 +1,27 @@
+
+pool:
+  vmImage: 'ubuntu-16.04'
+# parameters:
+# - name: tt1
+#   type: string
+#   default: 'default value!'
+# steps:
+# - script: echo ${{ parameters.tt1 }} ===tt1=== was entered at runtime!
+steps:
+- script: echo ===tt1=== was entered at runtime!
+- bash: echo "Hello world"
+- download: testpip1
+  artifact: vers
+- bash: ls -la $(Pipeline.Workspace)/testpip1/vers
+- bash: cat $(Pipeline.Workspace)/testpip1/vers/version
+- bash: env
+- bash: echo $(Build.TriggeredBy.ProjectID)
+resources:
+  pipelines:
+  - pipeline: "testpip1"
+    source: "JawboneHealth.testpip1"
+    branch: master
+    trigger: 
+      branches:
+        include: 
+        - master
