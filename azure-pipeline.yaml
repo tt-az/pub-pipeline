@@ -1,12 +1,9 @@
+
 pool:
   vmImage: 'ubuntu-16.04'
+parameters:
+- name: yesNo # name of the parameter; required
+  type: boolean # data type of the parameter; required
+  default: false
 steps:
-- bash: echo "Hello world"
-resources:
-  pipelines:
-  - pipeline: "test-pipeline-a"
-    source: "test-pipeline-a"
-    trigger: 
-      branches:
-        include: 
-        - master
+    - script: echo ${{ parameters.yesNo }}
