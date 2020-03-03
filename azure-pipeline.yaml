@@ -2,3 +2,11 @@ pool:
   vmImage: 'ubuntu-16.04'
 steps:
 - bash: echo "Hello world"
+resources:
+  pipelines:
+  - pipeline: "test-pipeline-a"
+    source: "test-pipeline-a"
+    trigger: 
+      branches:
+        include: 
+        - master
