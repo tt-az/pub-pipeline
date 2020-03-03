@@ -10,4 +10,5 @@ steps:
     echo "Starting ..."
     echo $(imageName)
     echo $(yesNo)
+    echo "===$(imageName)=========$(yesNo)====="
     echo "... Ending"
