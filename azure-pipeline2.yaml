@@ -1,19 +1,38 @@
-pool:
-  vmImage: 'ubuntu-16.04'
-  
-variables:
-  imageName: 'ttttestttt0303'
-  # define more variable yesNo  in the build pipeline in UI
 parameters:
-- name: yesNo # name of the parameter; required
-  type: boolean # data type of the parameter; required
-  default: false
+- name: image
+  displayName: Pool Image
+  type: string
+  default: ubuntu-latest
+  values:
+  - windows-latest
+  - vs2017-win2016
+  - ubuntu-latest
+  - ubuntu-16.04
+  - macOS-latest
+  - macOS-10.14
+
+trigger: none
+
+jobs:
+- job: build
+  displayName: build
+  pool: 
+    vmImage: ${{ parameters.image }}
+  steps:
+    - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
+
+# pool:
+#   vmImage: 'ubuntu-16.04'
   
-steps:
-- script: |
-    echo "Starting ..."
-    date
-    echo $(imageName)
-    echo $(yesNo)
-    echo "===$(imageName)====$(Build.BuildId)=====$(yesNo)====="
-    echo "... Ending"
+# variables:
+#   imageName: 'ttttestttt0303'
+#   # define more variable yesNo  in the build pipeline in UI
+  
+# steps:
+# - script: |
+#     echo "Starting ..."
+#     date
+#     echo $(imageName)
+#     echo $(yesNo)
+#     echo "===$(imageName)====$(Build.BuildId)=====$(yesNo)====="
+#     echo "... Ending"
