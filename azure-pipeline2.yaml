@@ -4,6 +4,10 @@ pool:
 variables:
   imageName: 'ttttestttt0303'
   # define more variable yesNo  in the build pipeline in UI
+parameters:
+- name: yesNo # name of the parameter; required
+  type: boolean # data type of the parameter; required
+  default: false
   
 steps:
 - script: |
