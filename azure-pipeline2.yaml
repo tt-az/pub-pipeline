@@ -2,7 +2,7 @@ pool:
   vmImage: 'ubuntu-16.04'
   
 variables:
-  imageName: 'ttttestttt777'
+  imageName: 'ttttestttt0303'
   # define more variable yesNo  in the build pipeline in UI
   
 steps:
