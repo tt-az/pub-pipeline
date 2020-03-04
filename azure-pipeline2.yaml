@@ -8,6 +8,7 @@ variables:
 steps:
 - script: |
     echo "Starting ..."
+    date
     echo $(imageName)
     echo $(yesNo)
     echo "===$(imageName)====$(Build.BuildId)=====$(yesNo)====="
