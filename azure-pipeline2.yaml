@@ -10,5 +10,5 @@ steps:
     echo "Starting ..."
     echo $(imageName)
     echo $(yesNo)
-    echo "===$(imageName)=========$(yesNo)====="
+    echo "===$(imageName)====$(Build.BuildId)=====$(yesNo)====="
     echo "... Ending"
